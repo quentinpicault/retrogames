@@ -36,5 +36,12 @@
       }
     }
   ],
-  "nxCloudAccessToken": "YjY3ZmJmZWUtOWJkZC00NjBkLWFlYjUtMjY4NTIwNzA3YTUwfHJlYWQtd3JpdGU="
+  "neverConnectToCloud": true,
+  "targetDefaults": {
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    }
+  }
 }
