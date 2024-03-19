@@ -1,5 +1,5 @@
 import { BaseEntity, Column, PrimaryGeneratedColumn } from "typeorm"
-import { IBaseModel } from "../models/baseModel"
+import { IBaseModel } from "../common/models/baseModel"
 
 export class GenericEntity extends BaseEntity implements IBaseModel {
   @PrimaryGeneratedColumn('uuid')

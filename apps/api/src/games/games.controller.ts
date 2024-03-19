@@ -2,6 +2,7 @@ import {
   Logger,
   Query,
   Req,
+  UseGuards,
 } from '@nestjs/common';
 import { Controller, Get } from '@nestjs/common';
 import {
@@ -10,6 +11,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { GamesService } from './games.service';
+import { AuthenticatedGuard } from '../auth/auth.guards';
 
 @ApiTags('games')
 @Controller('games')
@@ -24,6 +26,7 @@ export class GamesController {
 
   //GET /games
   @Get()
+  @UseGuards(AuthenticatedGuard)
   @ApiOperation({ summary: 'List games' })
   @ApiOkResponse({
     description: 'Game list',

@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GamesModule } from './games/games.module';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
@@ -23,6 +26,9 @@ import { GamesModule } from './games/games.module';
       },
       inject: [ConfigService],
     }),
+    AuthModule,
+    PassportModule.register({ session: true }),
+    UsersModule,
     GamesModule,
   ]
 })
